@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seu Nome - Portfólio Acadêmico</title>
+    <meta name="description" content="Portfólio acadêmico em Ciências Sociais - Pesquisador, Estudante e Acadêmico">
+    <meta name="keywords" content="ciências sociais, sociologia, pesquisa, acadêmico, universidade">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --text-dark: #2c3e50;
+            --text-light: #7f8c8d;
+            --background-light: #f8f9fa;
+            --white: #ffffff;
+            --shadow: 0 5px 15px rgba(0,0,0,0.1);
+            --border-radius: 10px;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--secondary-color);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--primary-color);
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--background-light) 0%, #ecf0f1 100%);
+            padding: 0 5%;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--secondary-color);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        .hero-image {
+            text-align: center;
+        }
+
+        .profile-photo {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: var(--shadow);
+            border: 5px solid var(--white);
+        }
+
+        /* Sections */
+        .section {
+            padding: 5rem 5%;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-info {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .about-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .expertise-list {
+            list-style: none;
+        }
+
+        .expertise-list li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .expertise-list i {
+            color: var(--secondary-color);
+        }
+
+        /* Research Section */
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .research-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .research-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .research-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .research-status {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background: var(--secondary-color);
+            color: var(--white);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Publications */
+        .publication-item {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .publication-title {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .publication-details {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .publication-abstract {
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Education Timeline */
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: var(--secondary-color);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin: 2rem 0;
+            width: 50%;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            padding-right: 2rem;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            padding-left: 2rem;
+        }
+
+        .timeline-content {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background: var(--secondary-color);
+            border-radius: 50%;
+            top: 1.5rem;
+        }
+
+        .timeline-item:nth-child(odd)::before {
+            right: -8px;
+        }
+
+        .timeline-item:nth-child(even)::before {
+            left: -8px;
+        }
+
+        .timeline-year {
+            color: var(--secondary-color);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .timeline-title {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin: 0.5rem 0;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--background-light);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .contact-item i {
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+            width: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: var(--secondary-color);
+            color: var(--white);
+            border-radius: 50%;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem 5%;
+        }
+
+        /* Scroll to Top */
+        .scroll-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: var(--secondary-color);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: var(--shadow);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            background: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background-color: var(--white);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: var(--shadow);
+                padding: 2rem 0;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline::before {
+                left: 30px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                left: 0;
+                padding-left: 70px;
+                padding-right: 0;
+            }
+
+            .timeline-item::before {
+                left: 22px;
+            }
+
+            .profile-photo {
+                width: 250px;
+                height: 250px;
+            }
+
+            .section {
+                padding: 3rem 5%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .research-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+        }
+
+        /* Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">Seu Nome</div>
+            <ul class="nav-menu">
+                <li><a href="#inicio" class="nav-link">Início</a></li>
+                <li><a href="#sobre" class="nav-link">Sobre</a></li>
+                <li><a href="#pesquisas" class="nav-link">Pesquisas</a></li>
+                <li><a href="#publicacoes" class="nav-link">Publicações</a></li>
+                <li><a href="#formacao" class="nav-link">Formação</a></li>
+                <li><a href="#contato" class="nav-link">Contato</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Seu Nome Completo</h1>
+                <p class="hero-subtitle">Mestrando(a) em Ciências Sociais</p>
+                <p class="hero-description">
+                    Pesquisador(a) dedicado(a) às questões sociais contemporâneas, com foco em sociologia urbana, 
+                    desigualdades sociais e metodologias qualitativas. Comprometido(a) com a produção de conhecimento 
+                    científico que contribua para o entendimento e transformação da realidade social.
+                </p>
+                <div class="cta-buttons">
+                    <a href="#sobre" class="btn btn-primary">
+                        <i class="fas fa-user"></i>
+                        Conhecer Mais
+                    </a>
+                    <a href="docs/cv.pdf" class="btn btn-outline" target="_blank">
+                        <i class="fas fa-download"></i>
+                        Download CV
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://via.placeholder.com/300x300/3498db/ffffff?text=Sua+Foto" alt="Foto do Perfil" class="profile-photo">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="sobre" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">Sobre Mim</h2>
+            <p class="section-subtitle fade-in">
+                Conheça minha trajetória acadêmica e áreas de especialização
+            </p>
+            
+            <div class="about-content">
+                <div class="about-info fade-in">
+                    <h3>Áreas de Especialização</h3>
+                    <ul class="expertise-list">
+                        <li><i class="fas fa-check"></i> Sociologia Urbana</li>
+                        <li><i class="fas fa-check"></i> Desigualdades Sociais</li>
+                        <li><i class="fas fa-check"></i> Metodologias Qualitativas</li>
+                        <li><i class="fas fa-check"></i> Pesquisa Social</li>
+                        <li><i class="fas fa-check"></i> Teoria Sociológica</li>
+                        <li><i class="fas fa-check"></i> Análise de Dados</li>
+                    </ul>
+                </div>
+                
+                <div class="about-text fade-in">
+                    <p>
+                        Sou um(a) pesquisador(a) em formação no campo das Ciências Sociais, com especial interesse 
+                        nas dinâmicas urbanas contemporâneas e suas implicações na estruturação das desigualdades sociais. 
+                        Minha formação acadêmica combina sólidos fundamentos teóricos com experiência prática em pesquisa de campo.
+                    </p>
+                    
+                    <p>
+                        Durante minha trajetória, desenvolvi competências em diversas metodologias de pesquisa, 
+                        desde abordagens quantitativas até técnicas etnográficas, sempre com o objetivo de compreender 
+                        as complexidades do mundo social contemporâneo. Acredito na importância da pesquisa aplicada 
+                        que dialogue com questões sociais relevantes.
+                    </p>
+                    
+                    <p>
+                        Atualmente, dedico-me ao mestrado explorando [sua área específica de pesquisa], 
+                        buscando contribuir para o debate acadêmico e para possíveis aplicações práticas dos resultados obtidos.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Section -->
+    <section id="pesquisas" class="section" style="background: var(--background-light);">
+        <div class="container">
+            <h2 class="section-title fade-in">Pesquisas</h2>
+            <p class="section-subtitle fade-in">
+                Projetos de pesquisa em desenvolvimento e concluídos
+            </p>
+            
+            <div class="research-grid">
+                <div class="research-card fade-in">
+                    <div class="research-status">Em Andamento</div>
+                    <h3>Dissertação de Mestrado</h3>
+                    <p>
+                        <strong>Título:</strong> "Dinâmicas Urbanas e Transformações Sociais: Um Estudo sobre [Tema Específico]"
+                    </p>
+                    <p>
+                        <strong>Orientador(a):</strong> Prof. Dr. Nome do Orientador
+                    </p>
+                    <p>
+                        Esta pesquisa investiga as transformações socioespaciais em contextos urbanos, 
+                        analisando como as mudanças estruturais impactam as relações sociais e a organização comunitária.
+                    </p>
+                </div>
+                
+                <div class="research-card fade-in">
+                    <div class="research-status">Concluído</div>
+                    <h3>Trabalho de Conclusão de Curso</h3>
+                    <p>
+                        <strong>Título:</strong> "Análise Sociológica de [Tema do TCC]"
+                    </p>
+                    <p>
+                        <strong>Orientador(a):</strong> Prof. Dr. Nome do Orientador
+                    </p>
+                    <p>
+                        Investigação sobre [descrição breve do TCC], utilizando metodologia [tipo de metodologia] 
+                        e contribuindo para o entendimento de [área específica].
+                    </p>
+                </div>
+                
+                <div class="research-card fade-in">
+                    <div class="research-status">Iniciação Científica</div>
+                    <h3>Projeto PIBIC/CNPq</h3>
+                    <p>
+                        <strong>Título:</strong> "Estudo sobre [Tema da Iniciação Científica]"
+                    </p>
+                    <p>
+                        <strong>Orientador(a):</strong> Prof. Dr. Nome do Orientador
+                    </p>
+                    <p>
+                        Projeto de iniciação científica que investigou [descrição do projeto], 
+                        desenvolvendo habilidades em pesquisa empírica e análise de dados.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section id="publicacoes" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">Publicações</h2>
+            <p class="section-subtitle fade-in">
+                Artigos, trabalhos apresentados e outras produções acadêmicas
+            </p>
+            
+            <div class="publication-item fade-in">
+                <div class="publication-title">
+                    Título do Artigo Científico ou Trabalho Apresentado
+                </div>
+                <div class="publication-details">
+                    Revista/Evento • Ano • Volume/Edição
+                </div>
+                <div class="publication-abstract">
+                    Resumo ou descrição breve da publicação, destacando os principais objetivos, 
+                    metodologia utilizada e resultados alcançados. Este trabalho contribui para...
+                </div>
+            </div>
+            
+            <div class="publication-item fade-in">
+                <div class="publication-title">
+                    Apresentação em Congresso ou Evento Acadêmico
+                </div>
+                <div class="publication-details">
+                    Nome do Evento • Ano • Local
+                </div>
+                <div class="publication-abstract">
+                    Descrição da apresentação realizada, incluindo os principais pontos abordados 
+                    e a contribuição para o debate acadêmico na área.
+                </div>
+            </div>
+            
+            <div class="publication-item fade-in">
+                <div class="publication-title">
+                    Resenha ou Ensaio
+                </div>
+                <div class="publication-details">
+                    Publicação • Ano
+                </div>
+                <div class="publication-abstract">
+                    Descrição da resenha ou ensaio, destacando a obra analisada e as principais 
+                    contribuições críticas desenvolvidas no texto.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Timeline -->
+    <section id="formacao" class="section" style="background: var(--background-light);">
+        <div class="container">
+            <h2 class="section-title fade-in">Formação Acadêmica</h2>
+            <p class="section-subtitle fade-in">
+                Minha trajetória educacional e qualificações
+            </p>
+            
+            <div class="timeline">
+                <div class="timeline-item fade-in">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2023 - Presente</div>
+                        <div class="timeline-title">Mestrado em Ciências Sociais</div>
+                        <p>Universidade Federal de [Estado] - Linha de Pesquisa: [Linha específica]</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item fade-in">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2019 - 2022</div>
+                        <div class="timeline-title">Bacharelado em Ciências Sociais</div>
+                        <p>Universidade [Nome] - Conclusão com [nota/conceito se relevante]</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item fade-in">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2024</div>
+                        <div class="timeline-title">Curso de Especialização</div>
+                        <p>Metodologias de Pesquisa Social - Instituição</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item fade-in">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2023</div>
+                        <div class="timeline-title">Curso de Extensão</div>
+                        <p>Análise de Dados Qualitativos - Universidade</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contato" class="section contact">
+        <div class="container">
+            <h2 class="section-title fade-in">Contato</h2>
+            <p class="section-subtitle fade-in">
+                Entre em contato para colaborações ou dúvidas
+            </p>
+            
+            <div class="contact-content">
+                <div class="contact-info fade-in">
+                    <h3>Informações de Contato</h3>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <strong>Email Institucional</strong><br>
+                            seu.email@universidade.edu.br
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <strong>Localização</strong><br>
+                            Goiânia, Goiás, Brasil
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-university"></i>
+                        <div>
+                            <strong>Instituição</strong><br>
+                            Universidade Federal de Goiás
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="http://lattes.cnpq.br/seu-lattes" class="social-link" target="_blank" title="Lattes">
+                            <i class="fas fa-graduation-cap"></i>
+                        </a>
+                        <a href="https://orcid.org/seu-orcid" class="social-link" target="_blank" title="ORCID">
+                            <i class="fab fa-orcid"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/seu-perfil" class="social-link" target="_blank" title="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://scholar.google.com/seu-perfil" class="social-link" target="_blank" title="Google Scholar">
+                            <i class="fas fa-user-graduate"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="contact-info fade-in">
+                    <h3>Áreas de Interesse para Colaboração</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin: 1rem 0; display: flex; align-items: center; gap: 0.5rem;">
+                            <i class="fas fa-arrow-right" style="color: var(--secondary-color);"></i>
+                            Pesquisas colaborativas em sociologia urbana
+                        </li>
+                        <li style="margin: 1rem 0; display: flex; align-items: center; gap: 0.5rem;">
+                            <i class="fas fa-arrow-right" style="color: var(--secondary-color);"></i>
+                            Projetos de extensão universitária
+                        </li>
+                        <li style="margin: 1rem 0; display: flex; align-items: center; gap: 0.5rem;">
+                            <i class="fas fa-arrow-right" style="color: var(--secondary-color);"></i>
+                            Grupos de estudo e pesquisa
+                        </li>
+                        <li style="margin: 1rem 0; display: flex; align-items: center; gap: 0.5rem;">
+                            <i class="fas fa-arrow-right" style="color: var(--secondary-color);"></i>
+                            Consultorias em metodologia de pesquisa
+                        </li>
+                        <li style="margin: 1rem 0; display: flex; align-items: center; gap: 0.5rem;">
+                            <i class="fas fa-arrow-right" style="color: var(--secondary-color);"></i>
+                            Participação em eventos acadêmicos
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Seu Nome. Todos os direitos reservados.</p>
+            <p>Desenvolvido com ❤️ para divulgação científica</p>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <a href="#inicio" class="scroll-top">
+        <i class="fas fa-chevron-up"></i>
+    </a>
+
+    <script>
+        // Mobile Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        }));
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header background on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+
+        // Scroll to top button
+        const scrollTopBtn = document.querySelector('.scroll-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with fade-in class
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Active navigation link highlighting
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
