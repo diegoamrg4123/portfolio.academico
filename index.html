@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -23,7 +24,7 @@
         :root {
             --primary-color: #8B4513;
             --secondary-color: #FF6347;
-            --accent-color: #228B22;
+            --accent-color: #136207;
             --text-dark: #5D4037;
             --text-light: #8D6E63;
             --background-light: #FFF8DC;
@@ -290,6 +291,10 @@
             top: 1.5rem;
         }
 
+        .timeline-item:nth-child(even)::before {
+            background: var(--accent-color);
+        }
+
         .timeline-item:nth-child(odd)::before {
             right: -8px;
         }
@@ -302,6 +307,10 @@
             color: var(--secondary-color);
             font-weight: 600;
             font-size: 0.9rem;
+        }
+
+        .timeline-item:nth-child(even) .timeline-year {
+            color: var(--accent-color);
         }
 
         .timeline-title {
@@ -324,6 +333,10 @@
             box-shadow: var(--shadow);
             transition: transform 0.3s ease;
             border-left: 4px solid var(--secondary-color);
+        }
+
+        .event-card:nth-child(2) {
+            border-left: 4px solid var(--accent-color);
         }
 
         .event-card:hover {
@@ -359,7 +372,7 @@
         .tfc-status {
             display: inline-block;
             padding: 0.3rem 0.8rem;
-            background: var(--secondary-color);
+            background: var(--accent-color);
             color: var(--white);
             border-radius: 20px;
             font-size: 0.8rem;
@@ -420,6 +433,14 @@
             width: 20px;
         }
 
+        .contact-item:nth-child(2) i {
+            color: var(--accent-color);
+        }
+
+        .contact-item:nth-child(4) i {
+            color: var(--accent-color);
+        }
+
         .social-links {
             display: flex;
             gap: 1rem;
@@ -441,8 +462,13 @@
         }
 
         .social-link:hover {
-            background: var(--primary-color);
+            background: var(--accent-color);
             transform: translateY(-3px);
+        }
+
+        .social-link:nth-child(2):hover,
+        .social-link:nth-child(4):hover {
+            background: var(--primary-color);
         }
 
         /* Footer */
