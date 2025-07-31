@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+/* Section Styles */
+        .aula-section {
+            padding: 4rem 5%;
+        }<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -84,9 +87,14 @@
 
         /* Main Content */
         .container {
-            max-width: 800px;
-            margin: 0 auto;
+            max-width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .intro-section {
             padding: 3rem 5%;
+            background: var(--white);
         }
 
         /* Content Blocks */
@@ -108,21 +116,43 @@
         .intro-text {
             text-align: center;
             max-width: 800px;
-            margin: 0 auto 3rem;
+            margin: 0 auto;
             font-size: 1.1rem;
             line-height: 1.8;
             color: var(--text-dark);
         }
 
+        /* Section Styles */
+        .aula-section {
+            padding: 4rem 5%;
+        }
+
+        .aula-section:nth-child(odd) {
+            background: var(--white);
+        }
+
+        .aula-section:nth-child(even) {
+            background: var(--background-light);
+        }
+
+        .section-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
         /* Related Content Groups */
         .content-group {
-            margin-bottom: 4rem;
+            margin-bottom: 2rem;
+        }
+
+        .content-group:last-child {
+            margin-bottom: 0;
         }
 
         .content-group .content-block:last-child,
         .content-group .pdf-container:last-child,
         .content-group .video-block:last-child {
-            margin-bottom: 1rem;
+            margin-bottom: 0;
         }
 
         /* Aula Blocks */
@@ -196,34 +226,17 @@
             background: var(--accent-color);
             color: var(--white);
             padding: 1rem 1.5rem;
-            text-align: center;
         }
 
         .video-title {
             font-weight: 600;
             font-size: 1.2rem;
+            margin: 0;
         }
 
         .video-content {
             padding: 1.5rem;
             text-align: center;
-        }
-
-        .video-link {
-            display: inline-block;
-            background: var(--accent-color);
-            color: var(--white);
-            padding: 1rem 2rem;
-            border-radius: var(--border-radius);
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            margin-top: 1rem;
-        }
-
-        .video-link:hover {
-            background: #c0392b;
-            transform: translateY(-2px);
         }
 
         .video-embed {
@@ -261,8 +274,12 @@
                 font-size: 2rem;
             }
 
-            .container {
+            .intro-section {
                 padding: 2rem 5%;
+            }
+
+            .aula-section {
+                padding: 3rem 5%;
             }
 
             .pdf-embed {
@@ -296,114 +313,117 @@
         </a>
         <div class="header-content">
             <h1>Aulas do Cursinho FazArte</h1>
-            <p class="header-subtitle">Coleção de aulas de Sociologia e Ciência Política ministradas no período de 2022-2024</p>
+            <p class="header-subtitle">Destaques das principais aulas de Sociologia e Ciências Sociais ministradas por mim no FazArte</p>
         </div>
     </header>
 
     <!-- Main Content -->
     <main class="container">
-        <!-- Intro Text -->
-        <div class="intro-text fade-in">
-            <p>
-                Durante minha atuação como professor voluntário no Cursinho Popular Comunidade FazArte, 
-                elaborei e ministrei diversas aulas de Sociologia voltadas para estudantes da classe trabalhadora 
-                em preparação para o ENEM. Aqui estão algumas das principais aulas desenvolvidas, 
-                com foco em metodologias ativas e didática acessível.
-            </p>
-        </div>
+        <!-- Intro Section -->
+        <section class="intro-section fade-in">
+            <div class="intro-text">
+                <p>
+                    Durante minha atuação como professor voluntário no Cursinho Popular Comunidade FazArte, 
+                    elaborei e ministrei diversas aulas de Sociologia voltadas para estudantes da classe trabalhadora 
+                    em preparação para o ENEM. Aqui estão algumas das principais aulas desenvolvidas, 
+                    com foco em metodologias ativas e didática acessível.
+                </p>
+            </div>
+        </section>
 
-        <!-- Grupo 1: Aula Gênero e Raça + PDF -->
-        <div class="content-group">
-            <!-- Aula 1: Gênero e Raça -->
-            <div class="content-block aula-block fade-in">
-                <div class="aula-header">
-                    <h2 class="aula-title">Gênero e Raça: Racismo e Sexismo na Cultura Brasileira</h2>
-                </div>
-                <div class="aula-content">
-                    <p class="aula-description">
-                        Uma das primeiras aulas que eu ministrava no cursinho, apresentando discussões sobre gênero com intersecção de raça. 
-                        Assim como apresentando Lélia Gonzalez, conceitos sobre estudos de raça com a Nilma Lino Gomes e também Luiza de Bairros.
-                    </p>
+        <!-- Seção 1: Aula Gênero e Raça + PDF -->
+        <section class="aula-section fade-in">
+            <div class="section-container">
+                <div class="content-group">
+                    <!-- Aula 1: Gênero e Raça -->
+                    <div class="content-block aula-block">
+                        <div class="aula-header">
+                            <h2 class="aula-title">Gênero e Raça: Racismo e Sexismo na Cultura Brasileira</h2>
+                        </div>
+                        <div class="aula-content">
+                            <p class="aula-description">
+                                Uma das primeiras aulas que eu ministrava no cursinho, apresentando discussões sobre gênero com intersecção de raça. 
+                                Assim como apresentando Lélia Gonzalez, conceitos sobre estudos de raça com a Nilma Lino Gomes e também Luiza de Bairros.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- PDF 1: Gênero e Raça -->
+                    <div class="pdf-container">
+                        <div class="pdf-header">
+                            <span class="pdf-title">Sociologia: Gênero, raça - racismo e sexismo na cultura brasileira 2.0</span>
+                        </div>
+                        <iframe class="pdf-embed" 
+                                src="https://diegoamrg4123.github.io/portfolio_academico_diego_amorim/Sociologia-%20Genero,%20raca%20-%20racismo%20e%20sexismo%20na%20cultura%20brasileira%202.0.pdf#toolbar=0&navpanes=0&scrollbar=0" 
+                                title="PDF: Gênero, raça - racismo e sexismo na cultura brasileira"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        </iframe>
+                        <div class="pdf-fallback" style="display: none;">
+                            PDF não pôde ser carregado. Acesse diretamente o arquivo no repositório.
+                        </div>
+                    </div>
                 </div>
             </div>
+        </section>
 
-            <!-- PDF 1: Gênero e Raça -->
-            <div class="pdf-container fade-in">
-                <div class="pdf-header">
-                    <span class="pdf-title">Sociologia: Gênero, raça - racismo e sexismo na cultura brasileira 2.0</span>
-                </div>
-                <iframe class="pdf-embed" 
-                        src="https://diegoamrg4123.github.io/portfolio_academico_diego_amorim/Sociologia-%20Genero,%20raca%20-%20racismo%20e%20sexismo%20na%20cultura%20brasileira%202.0.pdf#toolbar=0&navpanes=0&scrollbar=0" 
-                        title="PDF: Gênero, raça - racismo e sexismo na cultura brasileira"
-                        onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                </iframe>
-                <div class="pdf-fallback" style="display: none;">
-                    PDF não pôde ser carregado. Acesse diretamente o arquivo no repositório.
+        /* Seção 2: Aula Maquiavel + PDF + Vídeo */
+        <section class="aula-section fade-in">
+            <div class="section-container">
+                <div class="content-group">
+                    <!-- Aula 2: Maquiavel e Contratualistas -->
+                    <div class="content-block aula-block">
+                        <div class="aula-header">
+                            <h2 class="aula-title">Maquiavel e Contratualistas</h2>
+                        </div>
+                        <div class="aula-content">
+                            <p class="aula-description">
+                                Essa aula é especialmente interessante, pois em todas as vezes em que trabalhei esse tema com os estudantes, 
+                                no meio da aula, jogava com eles um pouco do jogo eletrônico <a href="https://store.steampowered.com/app/474750/Reigns" target="_blank" style="color: var(--secondary-color); text-decoration: none; font-weight: 600;">Reigns</a>. Ele ajuda a entender os conceitos de 
+                                O Príncipe de Maquiavel e ainda entretém e manter a turma ativa e cooperando para avançar no jogo.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- PDF 2: Maquiavel -->
+                    <div class="pdf-container">
+                        <div class="pdf-header">
+                            <span class="pdf-title">Maquiavel, Locke, Montesquieu</span>
+                        </div>
+                        <iframe class="pdf-embed" 
+                                src="https://diegoamrg4123.github.io/portfolio_academico_diego_amorim/Maquiavel,%20Locke,%20Montesquieu.pdf#toolbar=0&navpanes=0&scrollbar=0" 
+                                title="PDF: Maquiavel, Locke, Montesquieu"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        </iframe>
+                        <div class="pdf-fallback" style="display: none;">
+                            PDF não pôde ser carregado. Acesse diretamente o arquivo no repositório.
+                        </div>
+                    </div>
+
+                    <!-- Video: Trailer de Reigns -->
+                    <div class="video-block">
+                        <div class="video-header">
+                            <h3 class="video-title">Trailer de Reigns</h3>
+                        </div>
+                        <div class="video-content">
+                            <iframe class="video-embed" 
+                                    src="https://www.youtube.com/embed/O2HnvpXqII4" 
+                                    title="Trailer de Reigns"
+                                    allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!-- Grupo 2: Aula Maquiavel + PDF -->
-        <div class="content-group">
-            <!-- Aula 2: Maquiavel e Contratualistas -->
-            <div class="content-block aula-block fade-in">
-                <div class="aula-header">
-                    <h2 class="aula-title">Maquiavel e Contratualistas</h2>
-                </div>
-                <div class="aula-content">
-                    <p class="aula-description">
-                        Essa aula é especialmente interessante, pois em todas as vezes em que trabalhei esse tema com os estudantes, 
-                        no meio da aula, jogava com eles um pouco do jogo eletrônico Reigns. Ele ajuda a entender os conceitos de 
-                        O Príncipe de Maquiavel e ainda entretém e manter a turma ativa e cooperando para avançar no jogo.
-                    </p>
+        <!-- Seção 3: Continuation -->
+        <section class="aula-section fade-in">
+            <div class="section-container">
+                <div class="content-block continuation-block">
+                    <p>...</p>
                 </div>
             </div>
-
-            <!-- PDF 2: Maquiavel -->
-            <div class="pdf-container fade-in">
-                <div class="pdf-header">
-                    <span class="pdf-title">Maquiavel, Locke, Montesquieu</span>
-                </div>
-                <iframe class="pdf-embed" 
-                        src="https://diegoamrg4123.github.io/portfolio_academico_diego_amorim/Maquiavel,%20Locke,%20Montesquieu.pdf#toolbar=0&navpanes=0&scrollbar=0" 
-                        title="PDF: Maquiavel, Locke, Montesquieu"
-                        onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                </iframe>
-                <div class="pdf-fallback" style="display: none;">
-                    PDF não pôde ser carregado. Acesse diretamente o arquivo no repositório.
-                </div>
-            </div>
-        </div>
-
-        <!-- Grupo 3: Vídeo -->
-        <div class="content-group">
-            <!-- Video Section Header -->
-            <div class="content-block aula-block fade-in">
-                <div class="aula-header">
-                    <h3 class="aula-title">Trailer de Reigns</h3>
-                </div>
-            </div>
-
-            <!-- Video: Trailer de Reigns -->
-            <div class="video-block fade-in">
-                <div class="video-content">
-                    <iframe class="video-embed" 
-                            src="https://www.youtube.com/embed/O2HnvpXqII4" 
-                            title="Trailer de Reigns"
-                            allowfullscreen>
-                    </iframe>
-                    <a href="https://youtu.be/O2HnvpXqII4" class="video-link" target="_blank">
-                        <i class="fa-brands fa-youtube"></i>
-                        Assistir no YouTube
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Continuation -->
-        <div class="content-block continuation-block fade-in">
-            <p>...</p>
-        </div>
+        </section>
     </main>
 
     <script>
