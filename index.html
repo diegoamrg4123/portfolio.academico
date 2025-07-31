@@ -206,6 +206,11 @@
             font-weight: 700;
         }
 
+        .profile-photo.loaded {
+            background: none;
+            color: transparent;
+        }
+
         /* Sections */
         .section {
             padding: 5rem 5%;
@@ -658,7 +663,13 @@
                 </div>
             </div>
             <div class="hero-image">
-                <div class="profile-photo">DA</div>
+                <div class="profile-photo" id="profilePhoto">
+                    <img src="https://github.com/diegoamrg4123/portfolio.academico/raw/main/cortado-apresentacao-perfil.png" 
+                         alt="Diego Amorim Goulart" 
+                         style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;"
+                         onload="this.parentElement.classList.add('loaded')"
+                         onerror="this.style.display='none'; this.parentElement.innerHTML='DA';">
+                </div>
             </div>
         </div>
     </section>
@@ -767,7 +778,7 @@
                             <i class="fa-solid fa-file-pdf pdf-icon"></i>
                             <div class="timeline-year">2022 - 2024</div>
                             <div class="timeline-title">Professor de Sociologia Voluntário no Cursinho Popular Comunidade FazArte</div>
-                            <p>Atuei como professor de Sociologia para o cursinho preparatório para o ENEM voluntário, voltado à classe trabalhadora, onde elaborei e ministrei algumas aulas. Vale destacar, como uma das aulas mais autorais, a de <strong>Introdução à Teoria Ciência Política</strong>.</p>
+                            <p>Atuei como professor de Sociologia para o cursinho preparatório para o ENEM voluntário, voltado à classe trabalhadora, onde elaborei e ministrei algumas aulas. Vale destacar, como uma das aulas mais autorais, a de <strong>Introdução à Teoria Ciência Política</strong>. Na aula, propus uma dinâmica prática para que os estudantes possam entender as diferenças entre modelos de democracia consensual e modelos de democracia majoritária de forma simples.</p>
                         </div>
                     </a>
                 </div>
@@ -1011,6 +1022,18 @@
         document.querySelectorAll('.fade-in').forEach(el => {
             observer.observe(el);
         });
+
+        // Profile photo fallback
+        const profilePhoto = document.getElementById('profilePhoto');
+        const profileImg = profilePhoto.querySelector('img');
+        
+        if (profileImg) {
+            profileImg.addEventListener('error', function() {
+                this.style.display = 'none';
+                profilePhoto.innerHTML = 'DA';
+                profilePhoto.classList.remove('loaded');
+            });
+        }
 
         // Active navigation link highlighting
         window.addEventListener('scroll', () => {
