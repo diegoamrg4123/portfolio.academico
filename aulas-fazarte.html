@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aulas FazArte - Diego Amorim Goulart</title>
+    <meta name="description" content="Coleção de aulas ministradas no Cursinho Popular Comunidade FazArte">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --text-dark: #2c3e50;
+            --text-light: #7f8c8d;
+            --background-light: #f8f9fa;
+            --white: #ffffff;
+            --shadow: 0 5px 15px rgba(0,0,0,0.1);
+            --border-radius: 10px;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--background-light);
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .header {
+            background: var(--white);
+            box-shadow: var(--shadow);
+            padding: 2rem 5%;
+            text-align: center;
+        }
+
+        .back-button {
+            position: absolute;
+            left: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--secondary-color);
+            color: var(--white);
+            padding: 0.8rem 1.5rem;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .back-button:hover {
+            background: var(--primary-color);
+            transform: translateY(-50%) translateY(-2px);
+        }
+
+        .header-content h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .header-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-light);
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 5%;
+        }
+
+        .intro-text {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        /* Aulas Grid */
+        .aulas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .aula-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .aula-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .aula-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .aula-header {
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            color: var(--white);
+            padding: 1.5rem;
+            position: relative;
+        }
+
+        .aula-icon {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            opacity: 0.8;
+        }
+
+        .aula-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .aula-tema {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .aula-content {
+            padding: 1.5rem;
+        }
+
+        .aula-description {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .aula-objetivos {
+            margin-bottom: 1rem;
+        }
+
+        .aula-objetivos h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .aula-objetivos ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .aula-objetivos li {
+            position: relative;
+            padding-left: 1.2rem;
+            margin-bottom: 0.3rem;
+            font-size: 0.9rem;
+        }
+
+        .aula-objetivos li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        .aula-footer {
+            background: var(--background-light);
+            padding: 1rem 1.5rem;
+            border-top: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .aula-duracao {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .download-icon {
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+        }
+
+        /* Estatísticas */
+        .stats-section {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 3rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 1rem;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .back-button {
+                position: static;
+                transform: none;
+                margin-bottom: 1rem;
+                align-self: flex-start;
+            }
+
+            .header {
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .header-content h1 {
+                font-size: 2rem;
+            }
+
+            .aulas-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <a href="index.html" class="back-button">
+            <i class="fa-solid fa-arrow-left"></i>
+            Voltar ao Portfólio
+        </a>
+        <div class="header-content">
+            <h1>Aulas do Cursinho FazArte</h1>
+            <p class="header-subtitle">Coleção de aulas de Sociologia e Ciência Política ministradas no período de 2022-2024</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Intro -->
+        <div class="intro-text fade-in">
+            <p>
+                Durante minha atuação como professor voluntário no Cursinho Popular Comunidade FazArte, 
+                elaborei e ministrei diversas aulas de Sociologia voltadas para estudantes da classe trabalhadora 
+                em preparação para o ENEM. Aqui estão algumas das principais aulas desenvolvidas, 
+                com foco em metodologias ativas e didática acessível.
+            </p>
+        </div>
+
+        <!-- Estatísticas -->
+        <section class="stats-section fade-in">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">6</div>
+                    <div class="stat-label">Aulas Principais</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">2</div>
+                    <div class="stat-label">Anos de Ensino</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100+</div>
+                    <div class="stat-label">Estudantes Impactados</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">1</div>
+                    <div class="stat-label">Dinâmica Inovadora</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Grid de Aulas -->
+        <section class="aulas-grid">
+            <!-- Aula 1 - Introdução à Teoria da Ciência Política -->
+            <article class="aula-card fade-in">
+                <a href="https://github.com/seu-usuario/seu-repo/blob/main/aula-introducao-ciencia-politica.pdf" class="aula-link" target="_blank">
+                    <div class="aula-header">
+                        <i class="fa-solid fa-file-pdf aula-icon"></i>
+                        <h3 class="aula-title">Introdução à Teoria da Ciência Política</h3>
+                        <p class="aula-tema">Ciência Política • Democracia • Metodologia Ativa</p>
+                    </div>
+                    <div class="aula-content">
+                        <p class="aula-description">
+                            Aula autoral que propõe uma dinâmica prática para que os estudantes compreendam 
+                            as diferenças entre modelos de democracia consensual e majoritária de forma simples e acessível.
+                        </p>
+                        <div class="aula-objetivos">
+                            <h4>Objetivos de Aprendizagem</h4>
+                            <ul>
+                                <li>Compreender conceitos básicos de ciência política</li>
+                                <li>Distinguir modelos democráticos</li>
+                                <li>Aplicar conceitos através de dinâmica prática</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="aula-footer">
+                        <span class="aula-duracao">
+                            <i class="fa-solid fa-clock"></i>
+                            50 minutos
+                        </span>
+                        <i class="fa-solid fa-download download-icon"></i>
+                    </div>
+                </a>
+            </article>
+
+            <!-- Aula 2 - Sociologia Clássica -->
+            <article class="aula-card fade-in">
+                <a href="https://github.com/seu-usuario/seu-repo/blob/main/aula-sociologia-classica.pdf" class="aula-link" target="_blank">
+                    <div class="aula-header">
+                        <i class="fa-solid fa-file-pdf aula-icon"></i>
+                        <h3 class="aula-title">Fundadores da Sociologia</h3>
+                        <p class="aula-tema">Sociologia Clássica • Marx • Weber • Durkheim</p>
+                    </div>
+                    <div class="aula-content">
+                        <p class="aula-description">
+                            Apresentação dos principais fundadores da sociologia e suas contribuições 
+                            teóricas, com exemplos práticos do cotidiano brasileiro.
+                        </p>
+                        <div class="aula-objetivos">
+                            <h4>Objetivos de Aprendizagem</h4>
+                            <ul>
+                                <li>Conhecer os precursores da sociologia</li>
+                                <li>Compreender diferentes abordagens teóricas</li>
+                                <li>Relacionar teoria com realidade brasileira</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="aula-footer">
+                        <span class="aula-duracao">
+                            <i class="fa-solid fa-clock"></i>
+                            45 minutos
+                        </span>
+                        <i class="fa-solid fa-download download-icon"></i>
+                    </div>
+                </a>
+            </article>
+
+            <!-- Aula 3 - Movimentos Sociais -->
+            <article class="aula-card fade-in">
+                <a href="https://github.com/seu-usuario/seu-repo/blob/main/aula-movimentos-sociais.pdf" class="aula-link" target="_blank">
+                    <div class="aula-header">
+                        <i class="fa-solid fa-file-pdf aula-icon"></i>
+                        <h3 class="aula-title">Movimentos Sociais no Brasil</h3>
+                        <p class="aula-tema">Sociologia Contemporânea • Participação • Cidadania</p>
+                    </div>
+                    <div class="aula-content">
+                        <p class="aula-description">
+                            Análise dos principais movimentos sociais brasileiros, suas pautas, 
+                            estratégias e impactos na sociedade contemporânea.
+                        </p>
+                        <div class="aula-objetivos">
+                            <h4>Objetivos de Aprendizagem</h4>
+                            <ul>
+                                <li>Identificar tipos de movimentos sociais</li>
+                                <li>Analisar estratégias de mobilização</li>
+                                <li>Avaliar impactos sociais e políticos</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="aula-footer">
+                        <span class="aula-duracao">
+                            <i class="fa-solid fa-clock"></i>
+                            40 minutos
+                        </span>
+                        <i class="fa-solid fa-download download-icon"></i>
+                    </div>
+                </a>
+            </article>
+
+            <!-- Aula 4 - Desigualdade Social -->
+            <article class="aula-card fade-in">
+                <a href="https://github.com/seu-usuario/seu-repo/blob/main/aula-desigualdade-social.pdf" class="aula-link" target="_blank">
+                    <div class="aula-header">
+                        <i class="fa-solid fa-file-pdf aula-icon"></i>
+                        <h3 class="aula-title">Desigualdade Social e Estratificação</h3>
+                        <p class="aula-tema">Sociologia Aplicada • Classes Sociais • Mobilidade</p>
+                    </div>
+                    <div class="aula-content">
+                        <p class="aula-description">
+                            Discussão sobre estruturas de desigualdade no Brasil, processos de 
+                            estratificação social e possibilidades de mobilidade.
+                        </p>
+                        <div class="aula-objetivos">
+                            <h4>Objetivos de Aprendizagem</h4>
+                            <ul>
+                                <li>Compreender estruturas de desigualdade</li>
+                                <li>Analisar dados sobre estratificação</li>
+                                <li>Discutir políticas de mobilidade social</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="aula-footer">
+                        <span class="aula-duracao">
+                            <i class="fa-solid fa-clock"></i>
+                            55 minutos
+                        </span>
+                        <i class="fa-solid fa-download download-icon"></i>
+                    </div>
+                </a>
+            </article>
+
+            <!-- Aula 5 - Cultura e Sociedade -->
+            <article class="aula-card fade-in">
+                <a href="https://github.com/seu-usuario/seu-repo/blob/main/aula-cultura-sociedade.pdf" class="aula-link" target="_blank">
+                    <div class="aula-header">
+                        <i class="fa-solid fa-file-pdf aula-icon"></i>
+                        <h3 class="aula-title">Cultura e Diversidade</h3>
+                        <p class="aula-tema">Antropologia Cultural • Identidade • Multiculturalismo</p>
+                    </div>
+                    <div class="aula-content">
+                        <p class="aula-description">
+                            Exploração dos conceitos de cultura, diversidade cultural e 
+                            processos de formação de identidades no contexto brasileiro.
+                        </p>
+                        <div class="aula-objetivos">
+                            <h4>Objetivos de Aprendizagem</h4>
+                            <ul>
+                                <li>Definir conceitos de cultura</li>
+                                <li>Valorizar diversidade cultural</li>
+                                <li>Refletir sobre identidades múltiplas</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="aula-footer">
+                        <span class="aula-duracao">
+                            <i class="fa-solid fa-clock"></i>
+                            35 minutos
+                        </span>
+                        <i class="fa-solid fa-download download-icon"></i>
+                    </div>
+                </a>
+            </article>
+
+            <!-- Aula 6 - Direitos Humanos -->
+            <article class="aula-card fade-in">
+                <a href="https://github.com/seu-usuario/seu-repo/blob/main/aula-direitos-humanos.pdf" class="aula-link" target="_blank">
+                    <div class="aula-header">
+                        <i class="fa-solid fa-file-pdf aula-icon"></i>
+                        <h3 class="aula-title">Direitos Humanos e Cidadania</h3>
+                        <p class="aula-tema">Sociologia Jurídica • Direitos • Participação Social</p>
+                    </div>
+                    <div class="aula-content">
+                        <p class="aula-description">
+                            Apresentação histórica dos direitos humanos, sua evolução no Brasil 
+                            e a importância da participação social na garantia de direitos.
+                        </p>
+                        <div class="aula-objetivos">
+                            <h4>Objetivos de Aprendizagem</h4>
+                            <ul>
+                                <li>Conhecer evolução dos direitos humanos</li>
+                                <li>Identificar violações contemporâneas</li>
+                                <li>Promover cultura de direitos</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="aula-footer">
+                        <span class="aula-duracao">
+                            <i class="fa-solid fa-clock"></i>
+                            48 minutos
+                        </span>
+                        <i class="fa-solid fa-download download-icon"></i>
+                    </div>
+                </a>
+            </article>
+        </section>
+    </main>
+
+    <script>
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
